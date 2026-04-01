@@ -21,10 +21,16 @@ Given a movie title, it returns the 5 most similar movies using cosine similarit
 ---
 
 ## Project Structure
+
 ```
 movie-recommender/
 ├── app.py                   # Streamlit web app
 ├── movie_recommender.ipynb  # Data processing + model training notebook
+├── requirements.txt
+├── .gitignore
+├── model/                   # Auto-created by notebook (gitignored)
+│   ├── movie_list.pkl       # Processed DataFrame
+│   └── similarity.pkl       # ~95 MB cosine matrix
 └── data/                    # Raw CSVs from Kaggle (gitignored)
     ├── tmdb_5000_movies.csv
     └── tmdb_5000_credits.csv
@@ -35,6 +41,7 @@ movie-recommender/
 ## Setup
 
 ### 1. Clone & install dependencies
+
 ```bash
 git clone https://github.com/YOUR_USERNAME/movie-recommender.git
 cd movie-recommender
@@ -64,6 +71,7 @@ export TMDB_API_KEY="your_api_key_here"
 ```
 
 ### 5. Run the app
+
 ```bash
 streamlit run app.py
 ```
@@ -75,9 +83,9 @@ streamlit run app.py
 1. Push the repo to GitHub (model `.pkl` files are gitignored — use **Git LFS** if you want them tracked, otherwise users regenerate locally).
 2. Go to [share.streamlit.io](https://share.streamlit.io) → New app → select your repo.
 3. In **Advanced settings → Secrets**, add:
-```toml
+   ```toml
    TMDB_API_KEY = "your_api_key_here"
-```
+   ```
 
 ---
 
